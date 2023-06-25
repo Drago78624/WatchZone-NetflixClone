@@ -15,16 +15,20 @@ import {
 } from "@chakra-ui/react";
 import { FaArrowDown, FaSearch, FaBell } from "react-icons/fa";
 import TestProfImg from "@/assets/sasuke github.jpeg";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <Box bgColor="blackAlpha.800" p={4}>
+    <Box bgColor="black" p={4}>
       <Container maxW={themeUtilConfig.maxW}>
         <Flex justifyContent="space-between" alignItems="center">
           <HStack spacing={6} alignItems="center">
-            <Text fontWeight="semibold" display="flex" fontSize="3xl">
-              <Text color="white">Watch</Text><Text color={`${themeUtilConfig.primaryColor}.500`}>Zone</Text>
-            </Text>
+            <Link href="/">
+              <Text fontWeight="semibold" display="flex" fontSize="3xl">
+                <Text color="white">Watch</Text>
+                <Text color={`${themeUtilConfig.primaryColor}.500`}>Zone</Text>
+              </Text>
+            </Link>
             <Box display={{ lg: "none" }}>
               <Menu>
                 <MenuButton color="white">
@@ -51,12 +55,24 @@ const Navbar = () => {
               spacing={5}
               color="white"
             >
-              <Text>Home</Text>
-              <Text>Tv Shows</Text>
-              <Text>Movies</Text>
-              <Text>New & Popular</Text>
-              <Text>My List</Text>
-              <Text>Browse by Languages</Text>
+              <Link href="/">
+                <Text _hover={{color: `${themeUtilConfig.primaryColor}.500`}}>Home</Text>
+              </Link>
+              <Link href="/">
+                <Text _hover={{color: `${themeUtilConfig.primaryColor}.500`}}>Tv Shows</Text>
+              </Link>
+              <Link href="/">
+                <Text _hover={{color: `${themeUtilConfig.primaryColor}.500`}}>Movies</Text>
+              </Link>
+              <Link href="/">
+                <Text _hover={{color: `${themeUtilConfig.primaryColor}.500`}}>New & Popular</Text>
+              </Link>
+              <Link href="/">
+                <Text _hover={{color: `${themeUtilConfig.primaryColor}.500`}}>My List</Text>
+              </Link>
+              <Link href="/">
+                <Text _hover={{color: `${themeUtilConfig.primaryColor}.500`}}>Browse by Languages</Text>
+              </Link>
             </HStack>
           </HStack>
           <HStack color="white" spacing={4}>

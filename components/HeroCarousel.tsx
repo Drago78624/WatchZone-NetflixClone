@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   Badge,
@@ -10,6 +10,7 @@ import {
   Stack,
   Text,
   VStack,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
@@ -17,10 +18,13 @@ import TestSliderImg1 from "@/assets/s1.png";
 import TestSliderImg2 from "@/assets/s2.png";
 import TestSliderImg3 from "@/assets/s3.jpg";
 import themeUtilConfig from "@/theme-util-config";
+import DetailModal from "./DetailModal";
 
 const HeroCarousel = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
-    <Box p={3} bgGradient="linear(to-br, #0C1012, #44337A)" minH={600} w="100%">
+    <Box p={3} bgGradient={themeUtilConfig.gradient} minH={600} w="100%">
       <Splide
         options={{
           type: "loop",
@@ -40,10 +44,12 @@ const HeroCarousel = () => {
               alt=""
               src={TestSliderImg1.src}
             /> */}
-            <video width="100%" height="100%">
-              <source src="../assets/mistbreathing.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <Box maxH={{ lg: "800px" }}>
+              <video autoPlay={true} loop width="100%" height="100%">
+                <source src={"/mistbreathing.mp4"} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </Box>
             <VStack
               mx="auto"
               maxW={{ base: 550, lg: 600 }}
@@ -80,9 +86,11 @@ const HeroCarousel = () => {
               <Button
                 size={{ base: "md", lg: "lg" }}
                 colorScheme={themeUtilConfig.primaryColor}
+                onClick={onOpen}
               >
                 More info
               </Button>
+              <DetailModal isOpen={isOpen} onClose={onClose} />
             </VStack>
           </Flex>
         </SplideSlide>
