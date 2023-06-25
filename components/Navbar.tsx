@@ -3,6 +3,7 @@
 import themeUtilConfig from "@/theme-util-config";
 import {
   Box,
+  Button,
   Container,
   Flex,
   HStack,
@@ -18,8 +19,9 @@ import TestProfImg from "@/assets/sasuke github.jpeg";
 import Link from "next/link";
 
 const Navbar = () => {
+  const isLoggedIn = false
   return (
-    <Box bgColor="black" p={4}>
+    <Box bgColor="black" p={4} shadow="2xl">
       <Container maxW={themeUtilConfig.maxW}>
         <Flex justifyContent="space-between" alignItems="center">
           <HStack spacing={6} alignItems="center">
@@ -29,7 +31,7 @@ const Navbar = () => {
                 <Text color={`${themeUtilConfig.primaryColor}.500`}>Zone</Text>
               </Text>
             </Link>
-            <Box display={{ lg: "none" }}>
+            {isLoggedIn && <Box display={{ lg: "none" }}>
               <Menu>
                 <MenuButton color="white">
                   <Text display="flex" alignItems="center" gap={2}>
@@ -49,8 +51,8 @@ const Navbar = () => {
                   <MenuItem bgColor="inherit">Browse by Languages</MenuItem>
                 </MenuList>
               </Menu>
-            </Box>
-            <HStack
+            </Box>}
+            {isLoggedIn && <HStack
               display={{ base: "none", lg: "flex" }}
               spacing={5}
               color="white"
@@ -73,9 +75,9 @@ const Navbar = () => {
               <Link href="/">
                 <Text _hover={{color: `${themeUtilConfig.primaryColor}.500`}}>Browse by Languages</Text>
               </Link>
-            </HStack>
+            </HStack>}
           </HStack>
-          <HStack color="white" spacing={4}>
+          {isLoggedIn && <HStack color="white" spacing={4}>
             <Box>
               <FaSearch />
             </Box>
@@ -90,7 +92,8 @@ const Navbar = () => {
                 borderRadius="5px"
               />
             </Box>
-          </HStack>
+          </HStack>}
+          <Button as={Link} href="/" colorScheme={themeUtilConfig.primaryColor}>Sign in</Button>
         </Flex>
       </Container>
     </Box>

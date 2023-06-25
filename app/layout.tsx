@@ -1,6 +1,11 @@
 import Navbar from "@/components/Navbar";
 import Providers from "./providers";
 
+export const metadata = {
+  title: "WatchZone",
+  description: "A Netflix clone"
+}
+
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
