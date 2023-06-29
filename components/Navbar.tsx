@@ -25,7 +25,7 @@ const Navbar = () => {
       <Container maxW={themeUtilConfig.maxW}>
         <Flex justifyContent="space-between" alignItems="center">
           <HStack spacing={6} alignItems="center">
-            <Link href="/">
+            <Link href="/browse">
               <Text fontWeight="semibold" display="flex" fontSize="3xl">
                 <Text color="white">Watch</Text>
                 <Text color={`${themeUtilConfig.primaryColor}.500`}>Zone</Text>

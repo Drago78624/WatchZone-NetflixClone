@@ -7,7 +7,6 @@ import {
   Flex,
   Heading,
   Image,
-  Stack,
   Text,
   VStack,
   useDisclosure,
