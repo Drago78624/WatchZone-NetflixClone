@@ -62,7 +62,7 @@ const DetailModal = ({ isOpen, onClose }: DetailModalProps) => {
                 </Badge>
                 <Heading size={{ base: "xl", lg: "2xl" }}>John Wick</Heading>
                 <Button size="lg">
-                  <Text display="flex" alignItems="center" gap={2}>
+                  <Text as="span" display="flex" alignItems="center" gap={2}>
                     <FaPlay fontSize={16} /> Play
                   </Text>
                 </Button>

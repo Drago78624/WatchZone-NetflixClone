@@ -6,7 +6,6 @@ import "@splidejs/react-splide/css";
 import TestSliderImg1 from "@/assets/s1.png";
 import TestSliderImg2 from "@/assets/s2.png";
 import TestSliderImg3 from "@/assets/s3.jpg";
-import { useContext } from "react";
 import DetailModal from "./DetailModal";
 
 type MoviesSliderProps = {
