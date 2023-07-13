@@ -3,9 +3,6 @@
 import { Box, Heading, Image, useDisclosure } from "@chakra-ui/react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import TestSliderImg1 from "@/assets/s1.png";
-import TestSliderImg2 from "@/assets/s2.png";
-import TestSliderImg3 from "@/assets/s3.jpg";
 import DetailModal from "./DetailModal";
 
 type MoviesSliderProps = {
@@ -15,8 +12,8 @@ type MoviesSliderProps = {
 const MoviesSlider = (props: MoviesSliderProps) => {
     const {onOpen, onClose, isOpen} = useDisclosure()
   return (
-    <Box my={8} px={3}>
-      <Heading color="white" mb={3}>
+    <Box my={8} px={14}>
+      <Heading color="white" mb={3} position="relative" zIndex={2}> 
         {props.heading}
       </Heading>
       <Splide
@@ -46,76 +43,76 @@ const MoviesSlider = (props: MoviesSliderProps) => {
       >
         <DetailModal isOpen={isOpen} onClose={onClose} />
         <SplideSlide>
-          <Image cursor="pointer" onClick={onOpen} src={TestSliderImg1.src} />
+          <Image cursor="pointer" onClick={onOpen} src={"/m1.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg2.src} />
+          <Image src={"/m2.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg3.src} />
+          <Image src={"/m3.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg1.src} />
+          <Image src={"/m1.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg2.src} />
+          <Image src={"/m2.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg3.src} />
+          <Image src={"/m3.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg1.src} />
+          <Image src={"/m1.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg2.src} />
+          <Image src={"/m2.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg3.src} />
+          <Image src={"/m3.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg1.src} />
+          <Image src={"/m1.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg2.src} />
+          <Image src={"/m2.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg3.src} />
+          <Image src={"/m3.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg1.src} />
+          <Image src={"/m1.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg2.src} />
+          <Image src={"/m2.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg3.src} />
+          <Image src={"/m3.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg1.src} />
+          <Image src={"/m1.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg2.src} />
+          <Image src={"/m2.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg3.src} />
+          <Image src={"/m3.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg1.src} />
+          <Image src={"/m1.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg2.src} />
+          <Image src={"/m2.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg3.src} />
+          <Image src={"/m3.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg1.src} />
+          <Image src={"/m1.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg2.src} />
+          <Image src={"/m2.webp"} />
         </SplideSlide>
         <SplideSlide>
-          <Image src={TestSliderImg3.src} />
+          <Image src={"/m3.webp"} />
         </SplideSlide>
       </Splide>
     </Box>

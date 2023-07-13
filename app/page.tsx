@@ -14,10 +14,9 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { userLogin, userLoginSchema } from "@/models/user-schema";
-import Link from "next/link";
 import themeUtilConfig from "@/theme-util-config";
 
-const Login = () => {
+const SignUp = () => {
   const {
     register,
     handleSubmit,
@@ -32,66 +31,72 @@ const Login = () => {
   };
 
   return (
-    <Container
-      maxW={1400}
-      minH="80vh"
-      display="flex"
-      justifyContent="center"
-      alignItems="center">
-      <Box maxW={400} minW={{base: "auto", sm: 300, md: 350, lg: 400}} width="auto" bgColor="blackAlpha.700" p={{base: 6, sm: 7, md: 8, lg: 10}} borderRadius="lg">
-        <Heading textAlign="center" mb={10} size="lg" color="white">
-          Sign in
-        </Heading>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Stack spacing={4}>
-            <FormControl isInvalid={errors.email && true}>
-              <Input
-              color="white"
-                borderColor="purple.300"
-                placeholder="Email address"
-                variant="flushed"
-                type="email"
-                id="email"
-                {...register("email")}
-              />
-              {errors.email && (
-                <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
-              )}
-            </FormControl>
-            <FormControl isInvalid={errors.password && true}>
-              <Input
-              color="white"
-                borderColor="purple.300"
-                placeholder="Password"
-                variant="flushed"
-                type="password"
-                id="password"
-                {...register("password")}
-              />
-              {errors.password && (
-                <FormErrorMessage>{errors.password?.message}</FormErrorMessage>
-              )}
-            </FormControl>
-            <Stack>
-              <Button type="submit" width="full" colorScheme={themeUtilConfig.primaryColor}>
-                Login
-              </Button>
-              <Button width="full" colorScheme="red">
-                Login with Google
-              </Button>
-              <Text textAlign="center" color="white">
-                New to WatchZone ?{" "}
-                <Text color={`${themeUtilConfig.primaryColor}.600`} as={Link} href="/signup">
-                  <Text as="span">Sign up now</Text>
-                </Text>
-              </Text>
-            </Stack>
+    <Box
+      className="honolulu"
+      backgroundImage={`url("/moviesbg.jpg")`}
+      backgroundPosition="center"
+      backgroundRepeat="no-repeat"
+      backgroundSize="cover"
+      minH="100vh"
+      position="relative"
+    >
+      <Box position="absolute" minH="100vh" width="full" bgColor="blackAlpha.700" zIndex={1}></Box>
+      <Container
+      position="relative"
+        zIndex={2}
+        maxW={1400}
+        minH="100vh"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Box display="flex" flexDirection="column" alignItems="center">
+          <Stack spacing={4} textAlign="center" color="white" mb={2}>
+            <Heading color="white" size="2xl" textAlign="center" mb={5}>
+              Unlimited movies, TV shows, and more
+            </Heading>
+            <Text fontSize="2xl" fontWeight="semibold">Watch anywhere. Cancel anytime.</Text>
+            <Text fontSize="xl" fontWeight="semibold">
+              Ready to watch? Enter your email to create or restart your
+              membership.
+            </Text>
           </Stack>
-        </form>
-      </Box>
-    </Container>
+          <Box
+            minW={{ base: 300, sm: 400, md: 550 }}
+            width="auto"
+            bgColor="blackAlpha.700"
+            p={{ base: 6, sm: 7, md: 8 }}
+            borderRadius="lg"
+          >
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Stack spacing={4} direction={{ base: "column", md: "row" }}>
+                <FormControl isInvalid={errors.email && true}>
+                  <Input
+                    color="white"
+                    borderColor="purple.300"
+                    placeholder="Email address"
+                    variant="flushed"
+                    type="email"
+                    id="email"
+                    {...register("email")}
+                  />
+                  {errors.email && (
+                    <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
+                  )}
+                </FormControl>
+                <Button
+                  type="submit"
+                  colorScheme={themeUtilConfig.primaryColor}
+                >
+                  Get Started
+                </Button>
+              </Stack>
+            </form>
+          </Box>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 
-export default Login;
-
+export default SignUp;

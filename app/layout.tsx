@@ -11,7 +11,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="en">
       <body>
         <Providers>
-          <div style={{ minHeight: "100vh" ,backgroundImage: "linear-gradient(to bottom right, #0C1012, #44337A)"}}>
+          <div style={{ minHeight: "300vh" ,backgroundColor: "#141414"}}>
             <Navbar />
             {children}
           </div>

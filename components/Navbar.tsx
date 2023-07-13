@@ -23,24 +23,57 @@ import { MdClose, MdMenu } from "react-icons/md";
 import TestProfImg from "@/assets/sasuke github.jpeg";
 import Link from "next/link";
 import NavDrawer from "./NavDrawer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [showSearch, setShowSearch] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const isLoggedIn = true;
-  console.log(showSearch);
+  const pathname = usePathname();
+  const [navColor, setNavColor] = useState("transparent");
+
+  const changeNavbarColor = () => {
+    const scrollY = window.scrollY;
+
+    if (scrollY >= 50) {
+      setNavColor(themeUtilConfig.black);
+    } else {
+      setNavColor("transparent");
+    }
+  };
+
+  useEffect(() => {
+    changeNavbarColor();
+    window.addEventListener("scroll", changeNavbarColor);
+    return () => {
+      window.removeEventListener("scroll", changeNavbarColor);
+    };
+  }, []);
+
   return (
-    <Box bgColor={themeUtilConfig.black} py={3} shadow="2xl">
-      <Container maxW={themeUtilConfig.maxW}>
+    <Box
+      // bgColor={themeUtilConfig.black}
+      backgroundColor={navColor}
+      transition="background-color 200ms linear"
+      py={3}
+      position="fixed"
+      width="100%"
+      zIndex={4}
+    >
+      <Container
+        maxW={
+          pathname == "/" || pathname == "/login" ? themeUtilConfig.maxW : 1800
+        }
+      >
         <Flex justifyContent="space-between" alignItems="center">
-          <HStack spacing={6} alignItems="center">
+          <HStack spacing={10} alignItems="center">
             <Link href="/browse">
               <Text
                 as="span"
                 fontWeight="semibold"
                 display="flex"
-                fontSize="3xl"
+                fontSize="4xl"
               >
                 <Text as="span" color="white">
                   Watch
@@ -51,7 +84,7 @@ const Navbar = () => {
               </Text>
             </Link>
             {isLoggedIn && (
-              <Box display={{ base: "none", md: "block", lg: "none" }}>
+              <Box display={{ base: "none", md: "block", xl: "none" }} pt={2}>
                 <Menu>
                   <MenuButton color="white">
                     <Text display="flex" alignItems="center" gap={2}>
@@ -75,9 +108,10 @@ const Navbar = () => {
             )}
             {isLoggedIn && (
               <HStack
-                display={{ base: "none", lg: "flex" }}
+                display={{ base: "none", xl: "flex" }}
                 spacing={5}
                 color="white"
+                pt={2}
               >
                 <Link href="/">
                   <Text
@@ -93,7 +127,7 @@ const Navbar = () => {
                     Tv Shows
                   </Text>
                 </Link>
-                <Link href="/">
+                <Link href="/movies">
                   <Text
                     _hover={{ color: `${themeUtilConfig.primaryColor}.500` }}
                   >
@@ -137,8 +171,15 @@ const Navbar = () => {
               )}
               {showSearch && (
                 <Box>
-                  <InputGroup width="350px">
-                    <Input variant="filled" bgColor="gray.800" _hover={{bgColor: "gray.800"}} _focus={{bgColor: "gray.800"}} color="white" placeholder="Search" />
+                  <InputGroup width="300px">
+                    <Input
+                      variant="filled"
+                      bgColor="gray.800"
+                      _hover={{ bgColor: "gray.800" }}
+                      _focus={{ bgColor: "gray.800" }}
+                      color="white"
+                      placeholder="Titles, people, genres"
+                    />
                     <InputRightElement
                       cursor="pointer"
                       onClick={() => setShowSearch(false)}
@@ -205,7 +246,7 @@ const Navbar = () => {
           {!isLoggedIn && (
             <Button
               as={Link}
-              href="/"
+              href="/login"
               colorScheme={themeUtilConfig.primaryColor}
             >
               Sign in

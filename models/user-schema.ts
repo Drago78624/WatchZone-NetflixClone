@@ -8,7 +8,12 @@ export const userLoginSchema = z.object({
   email: z.string().email().trim().toLowerCase(),
   password: z
     .string()
-    .min(4, { message: "Password must be 4 characters long" }),
+    .min(4, {
+      message: "Your password must contain between 4 and 60 characters.",
+    })
+    .max(60, {
+      message: "Your password must contain between 4 and 60 characters.",
+    }),
 });
 
 export type userRegister = z.infer<typeof userRegisterSchema>;
