@@ -6,7 +6,6 @@ import {
   Button,
   Flex,
   Heading,
-  Image,
   Text,
   VStack,
   useDisclosure,
@@ -14,20 +13,12 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
 } from "@chakra-ui/react";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import TestSliderImg1 from "@/assets/s1.png";
-import TestSliderImg2 from "@/assets/s2.png";
-import TestSliderImg3 from "@/assets/s3.jpg";
 import themeUtilConfig from "@/theme-util-config";
 import DetailModal from "./DetailModal";
 import { usePathname } from "next/navigation";
-import {FaArrowDown} from 'react-icons/fa'
+import { FaArrowDown } from "react-icons/fa";
 
 const HeroCarousel = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -36,21 +27,80 @@ const HeroCarousel = () => {
   return (
     <Box w="100%">
       <Flex direction="column" position="relative">
-        <Flex alignItems="center" gap="10" color="white" position="absolute" zIndex={2} top="12%" left="4%">
-          <Heading>Movies</Heading>
-          <Menu>
-            <MenuButton bgColor={themeUtilConfig.black} color="white" as={Button} variant="outline" rightIcon={<FaArrowDown />}>
-              Actions
-            </MenuButton>
-            <MenuList>
-              <MenuItem>Download</MenuItem>
-              <MenuItem>Create a Copy</MenuItem>
-              <MenuItem>Mark as Draft</MenuItem>
-              <MenuItem>Delete</MenuItem>
-              <MenuItem>Attend a Workshop</MenuItem>
-            </MenuList>
-          </Menu>
-        </Flex>
+        {pathname == "/movies" && (
+          <Flex
+            alignItems="center"
+            gap="10"
+            color="white"
+            position="absolute"
+            zIndex={2}
+            top="12%"
+            left="4%"
+          >
+            <Heading>Movies</Heading>
+            <Menu>
+              <MenuButton
+                bgColor={themeUtilConfig.black}
+                _hover={{ bgColor: "gray.600" }}
+                _active={{ bgColor: "gray.600" }}
+                color="white"
+                as={Button}
+                variant="outline"
+                rightIcon={<FaArrowDown />}
+              >
+                Genres
+              </MenuButton>
+              <MenuList
+                border={0}
+                color="white"
+                bgColor={`${themeUtilConfig.primaryColor}.600`}
+              >
+                <MenuItem bgColor="inherit">Download</MenuItem>
+                <MenuItem bgColor="inherit">Create a Copy</MenuItem>
+                <MenuItem bgColor="inherit">Mark as Draft</MenuItem>
+                <MenuItem bgColor="inherit">Delete</MenuItem>
+                <MenuItem bgColor="inherit">Attend a Workshop</MenuItem>
+              </MenuList>
+            </Menu>
+          </Flex>
+        )}
+        {pathname == "/tvshows" && (
+          <Flex
+            alignItems="center"
+            gap="10"
+            color="white"
+            position="absolute"
+            zIndex={2}
+            top="12%"
+            left="4%"
+          >
+            <Heading>Tv Shows</Heading>
+            <Menu>
+              <MenuButton
+                bgColor={themeUtilConfig.black}
+                _hover={{ bgColor: "gray.600" }}
+                _active={{ bgColor: "gray.600" }}
+                color="white"
+                as={Button}
+                variant="outline"
+                rightIcon={<FaArrowDown />}
+              >
+                Genres
+              </MenuButton>
+              <MenuList
+                border={0}
+                color="white"
+                bgColor={`${themeUtilConfig.primaryColor}.600`}
+              >
+                <MenuItem bgColor="inherit">Download</MenuItem>
+                <MenuItem bgColor="inherit">Create a Copy</MenuItem>
+                <MenuItem bgColor="inherit">Mark as Draft</MenuItem>
+                <MenuItem bgColor="inherit">Delete</MenuItem>
+                <MenuItem bgColor="inherit">Attend a Workshop</MenuItem>
+              </MenuList>
+            </Menu>
+          </Flex>
+        )}
         <Box maxH={{ lg: "800px" }}>
           <video autoPlay={true} loop width="100%" height="100%">
             <source src={"/mistbreathing.mp4"} type="video/mp4" />

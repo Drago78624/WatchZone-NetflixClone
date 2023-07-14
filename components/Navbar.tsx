@@ -113,14 +113,14 @@ const Navbar = () => {
                 color="white"
                 pt={2}
               >
-                <Link href="/">
+                <Link href="/browse">
                   <Text
                     _hover={{ color: `${themeUtilConfig.primaryColor}.500` }}
                   >
                     Home
                   </Text>
                 </Link>
-                <Link href="/">
+                <Link href="/tvshows">
                   <Text
                     _hover={{ color: `${themeUtilConfig.primaryColor}.500` }}
                   >
