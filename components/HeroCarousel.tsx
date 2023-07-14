@@ -25,7 +25,7 @@ const HeroCarousel = () => {
   const pathname = usePathname();
 
   return (
-    <Box w="100%">
+    <Box w="100%" mb={8}>
       <Flex direction="column" position="relative">
         {pathname == "/movies" && (
           <Flex

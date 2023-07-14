@@ -10,10 +10,11 @@ type MoviesSliderProps = {
 };
 
 const MoviesSlider = (props: MoviesSliderProps) => {
-    const {onOpen, onClose, isOpen} = useDisclosure()
+  const { onOpen, onClose, isOpen } = useDisclosure();
+
   return (
-    <Box my={8} px={14}>
-      <Heading color="white" mb={3} position="relative" zIndex={2}> 
+    <Box mb={8} px={14}>
+      <Heading color="white" mb={3} position="relative" zIndex={2}>
         {props.heading}
       </Heading>
       <Splide

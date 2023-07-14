@@ -134,14 +134,14 @@ const Navbar = () => {
                     Movies
                   </Text>
                 </Link>
-                <Link href="/">
+                <Link href="/latest">
                   <Text
                     _hover={{ color: `${themeUtilConfig.primaryColor}.500` }}
                   >
                     New & Popular
                   </Text>
                 </Link>
-                <Link href="/">
+                <Link href="/mylist">
                   <Text
                     _hover={{ color: `${themeUtilConfig.primaryColor}.500` }}
                   >
