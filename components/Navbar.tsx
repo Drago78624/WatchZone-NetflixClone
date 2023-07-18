@@ -4,6 +4,7 @@ import themeUtilConfig from "@/theme-util-config";
 import {
   Box,
   Button,
+  Center,
   Container,
   Flex,
   HStack,
@@ -13,13 +14,16 @@ import {
   InputRightElement,
   Menu,
   MenuButton,
+  MenuDivider,
   MenuItem,
   MenuList,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import { FaArrowDown, FaSearch, FaBell, FaCross } from "react-icons/fa";
-import { MdClose, MdMenu } from "react-icons/md";
+import { FaArrowDown, FaSearch, FaBell } from "react-icons/fa";
+import {MdEdit, MdClose, MdMenu} from 'react-icons/md';
+import {HiOutlineUser} from 'react-icons/hi';
+import {BiExit} from 'react-icons/bi';
 import TestProfImg from "@/assets/sasuke github.jpeg";
 import Link from "next/link";
 import NavDrawer from "./NavDrawer";
@@ -221,14 +225,80 @@ const Navbar = () => {
                   <MenuList
                     border={0}
                     color="white"
-                    bgColor={`${themeUtilConfig.primaryColor}.600`}
+                    bgColor={themeUtilConfig.black}
                   >
-                    <MenuItem bgColor="inherit">Home</MenuItem>
-                    <MenuItem bgColor="inherit">Tv Shows</MenuItem>
-                    <MenuItem bgColor="inherit">Movies</MenuItem>
-                    <MenuItem bgColor="inherit">New & Popular</MenuItem>
-                    <MenuItem bgColor="inherit">My List</MenuItem>
-                    <MenuItem bgColor="inherit">Browse by Languages</MenuItem>
+                    <MenuItem bgColor="inherit">
+                      <HStack spacing={3}>
+                        <Image
+                          width={8}
+                          alt=""
+                          src={TestProfImg.src}
+                          borderRadius="5px"
+                        />
+                        <Text>Profile 1</Text>
+                      </HStack>
+                    </MenuItem>
+                    <MenuItem bgColor="inherit">
+                      <HStack spacing={3}>
+                        <Image
+                          width={8}
+                          alt=""
+                          src={TestProfImg.src}
+                          borderRadius="5px"
+                        />
+                        <Text>Profile 1</Text>
+                      </HStack>
+                    </MenuItem>
+                    <MenuItem bgColor="inherit">
+                      <HStack spacing={3}>
+                        <Image
+                          width={8}
+                          alt=""
+                          src={TestProfImg.src}
+                          borderRadius="5px"
+                        />
+                        <Text>Profile 1</Text>
+                      </HStack>
+                    </MenuItem>
+                    <MenuItem bgColor="inherit">
+                      <HStack spacing={3}>
+                        <Image
+                          width={8}
+                          alt=""
+                          src={TestProfImg.src}
+                          borderRadius="5px"
+                        />
+                        <Text>Profile 1</Text>
+                      </HStack>
+                    </MenuItem>
+                    <MenuItem bgColor="inherit">
+                      <HStack spacing={3}>
+                        <Center width={8} color="white">
+                          <MdEdit fontSize="24px" />
+                        </Center>
+                        <Text>Manage Profiles</Text>
+                      </HStack>
+                    </MenuItem>
+                    <MenuItem bgColor="inherit">
+                      <HStack spacing={3}>
+                        <Center width={8} color="white">
+                          <BiExit fontSize="24px" />
+                        </Center>
+                        <Text>Exit Profile</Text>
+                      </HStack>
+                    </MenuItem>
+                    <MenuItem as={Link} href="/account" bgColor="inherit">
+                      <HStack spacing={3}>
+                        <Center width={8} color="white">
+                          <HiOutlineUser fontSize="24px" />
+                        </Center>
+                        <Text>Account</Text>
+                      </HStack>
+                    </MenuItem>
+                    <MenuDivider />
+                    <Center width="full">
+                        <Text>Sign out of WatchZone</Text>
+                    </Center>
                   </MenuList>
                 </Menu>
               </Box>
